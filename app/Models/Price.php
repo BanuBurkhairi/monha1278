@@ -9,7 +9,7 @@ class Price extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['commodity_id', 'month_year', 'price'];
+    protected $fillable = ['commodity_id', 'month_year', 'price', 'rentang', 'status', 'keterangan'];
 
     public function commodity()
     {
