@@ -39,9 +39,13 @@
                 <div class="d-flex">
                     <h3 class="card-title">Komoditas Sampel SHK</h3>
                     <div class="ms-auto text-muted">
-                        Search:
                         <form action="{{ route('commodities.index') }}" method="GET" class="ms-2 d-inline-block">
-                            <input type="text" name="search" value="{{ request()->get('search') }}" class="form-control form-control-sm">
+                            <div class="input-icon">
+                                <span class="input-icon-addon">
+                                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>
+                                </span>
+                                <input type="search" name="search" value="{{ request()->get('search') }}" class="form-control d-inline-block w-9 me-3" placeholder="Cari Komoditas...">
+                            </div> 
                         </form>
                     </div>
                 </div>

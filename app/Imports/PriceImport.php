@@ -22,19 +22,28 @@ class PriceImport implements ToModel, WithHeadingRow, SkipsEmptyRows
 
         $commodityPrice = Price::where('month_year', $this->month_year)->where('commodity_id', $commodityId)->first();
         
+        if ($row['rh'] < 80 || $row['rh'] > 120) {
+            $status = "Ekstrim";
+        } elseif ($row['rh'] == 100) {
+            $status = "Tetap";
+        } else {
+            $status = "Normal";
+        }
+
         if ($commodityPrice) {
             // Jika sudah ada, update harga dan RH
             $commodityPrice->price = $row['price'];
             $commodityPrice->rentang = $row['rh'];
+            $commodityPrice->status = $status;
             $commodityPrice->save(); // Simpan perubahan
         } else {
             // Jika belum ada, create entry baru
-            \Log::info($row);
             return new Price([
                 'commodity_id' => $commodityId,
                 'month_year' => $this->month_year,
                 'price' => $row['price'],
                 'rentang' => $row['rh'],
+                'status' => $status,
                 // Pastikan field lain diisi jika diperlukan
             ]);
         }

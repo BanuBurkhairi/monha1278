@@ -32,7 +32,7 @@
             </button>
             <h1 class="navbar-brand navbar-brand-autodark">
               <a href=".">
-                <img src="{{ asset('img/banner-logo.png') }}" width="110" height="32" alt="Tabler" class="navbar-brand-image">
+                <img src="{{ asset('img/banner-logo.png') }}" width="200" alt="Monha">
               </a>
             </h1> 
             <div class="collapse navbar-collapse" id="sidebar-menu">
@@ -169,9 +169,12 @@
           </footer>
         </div>
     </div>
+    @yield('popup')
     <!-- perJSan -->
+    <script src="./dist/libs/apexcharts/dist/apexcharts.min.js?1684106062" defer></script>
     <script src="{{ asset('dist/js/tabler.min.js?1684106062') }}" defer></script>
     <script src="{{ asset('dist/js/demo.min.js?1684106062') }}" defer></script>
+    @yield('jees')
 </body>
 </body>
 </html>

@@ -10,10 +10,7 @@ use App\Http\Controllers\PriceController;
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('commodities', CommodityController::class);
-    Route::get('/price', function () {
-        return view('price.index');
-    })->name('price.index');
-    
+    Route::resource('price', PriceController::class);
     Route::post('/price/import', [PriceController::class, 'import'])->name('price.import');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
